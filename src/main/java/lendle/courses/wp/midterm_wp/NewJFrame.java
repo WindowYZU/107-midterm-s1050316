@@ -129,7 +129,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         jButton1.setEnabled(true);
                         //將下載好的項目加入到 jList 裡面
                          JList list = new JList();
-                         list.add( jButton1);
+                         list.add(jButton1);
                         ////////////////////////////
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override
@@ -150,12 +150,26 @@ public class NewJFrame extends javax.swing.JFrame {
                                             new URL ("http://pluspng.com/img-png/bulb-hd-png-light-bulb-png-transparent-image-2048.png"));
                                     JLabel jLabel2 = new JLabel("test",icon1,JLabel.LEADING);
                                     
+                                    this.jLabel2.setIcon(icon1);
+                                    this.jLabel2.setIcon(icon2);
+                                    this.jLabel2.setIcon(icon3);
+                                    this.jLabel2.setIcon(icon4);
                                     ////////////////////////////////////////
                                     jList1.updateUI();
                                 } catch (Exception ex) {
                                     Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                                 
+                            }
+
+                            private class jLabel2 {
+
+                                private static void setIcon(ImageIcon icon1) {
+                                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                                }
+
+                                public jLabel2() {
+                                }
                             }
                         });
                     } else if (failed) {
