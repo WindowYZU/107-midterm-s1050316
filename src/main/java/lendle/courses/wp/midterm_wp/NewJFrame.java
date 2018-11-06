@@ -15,6 +15,9 @@ import java.util.logging.Logger;
 import javafx.scene.AccessibleAttribute;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.ProgressMonitor;
 import javax.swing.SwingUtilities;
 
@@ -52,6 +55,11 @@ public class NewJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "https://mbtskoudsalg.com/images/png-image-7.png", "http://pngimg.com/uploads/eagle/eagle_PNG1227.png", "https://upload.wikimedia.org/wikipedia/commons/4/4a/Photographer_Barnstar.png", "http://pluspng.com/img-png/bulb-hd-png-light-bulb-png-transparent-image-2048.png", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(jList1);
 
@@ -101,7 +109,9 @@ public class NewJFrame extends javax.swing.JFrame {
         try {
             jButton1.setEnabled(false);
             //從 combobox 抓出被選到的項目，存到變數裡
+            JComboBox jButton1 = new JComboBox();
             String selectedItem="";
+            jButton1.addItem(selectedItem);
             /////////////////////////////////////
             URL url = new URL(selectedItem);
             String fileName = url.getFile();
@@ -118,7 +128,8 @@ public class NewJFrame extends javax.swing.JFrame {
                         progress.setVisible(false);
                         jButton1.setEnabled(true);
                         //將下載好的項目加入到 jList 裡面
-                        
+                         JList list = new JList();
+                         list.add( jButton1);
                         ////////////////////////////
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override
@@ -126,6 +137,19 @@ public class NewJFrame extends javax.swing.JFrame {
                                 try {
                                     URL fileURL=tempFile.toURI().toURL();
                                     //利用 fileURL 將 image icon 加到 jLabel2
+                                    ImageIcon icon1 = new ImageIcon(
+                                            new URL ("https://mbtskoudsalg.com/images/png-image-7.png"));
+                                    
+                                    ImageIcon icon2 = new ImageIcon(
+                                            new URL ("http://pngimg.com/uploads/eagle/eagle_PNG1227.png"));
+                                    
+                                    ImageIcon icon3 = new ImageIcon(
+                                            new URL ("https://upload.wikimedia.org/wikipedia/commons/4/4a/Photographer_Barnstar.png"));
+                                    
+                                    ImageIcon icon4 = new ImageIcon(
+                                            new URL ("http://pluspng.com/img-png/bulb-hd-png-light-bulb-png-transparent-image-2048.png"));
+                                    JLabel jLabel2 = new JLabel("test",icon1,JLabel.LEADING);
+                                    
                                     ////////////////////////////////////////
                                     jList1.updateUI();
                                 } catch (Exception ex) {
@@ -146,6 +170,10 @@ public class NewJFrame extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
